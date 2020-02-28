@@ -1,6 +1,22 @@
-// Inside the `burgers_controller.js` file, import the following:
+const express = require("express");
 
-//    * Express
-//    * `burger.js`
+const router = express.Router();
 
-// 4. Create the `router` for the app, and export the `router` at the end of your file.
+// Import the model to use its database functions.
+const burger = require("../models/burger.js")
+
+// Create all our routes and set up logic within those routes where required.
+router.get("/", (req, res) => {
+
+});
+
+router.post("/api/burgers", (req, res) => {
+
+});
+
+router.put("/api/burgers/:id", (req, res) => {
+
+});
+
+// Export routes for server.js to use.
+module.exports = router;
