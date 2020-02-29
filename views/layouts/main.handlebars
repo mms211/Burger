@@ -1,1 +1,43 @@
-{{!-- Setup the `main.handlebars` file so it's able to be used by Handlebars. --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!--<link rel="stylesheet" href="../../public/assets/css/burger_style.css" type="text/css" />-->
+	<title>Burgers!</title>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	{{!-- <script src="../../public/js/burgers.js"></script> --}}
+</head>
+
+<body>
+	{{{ body }}}
+</body>
+
+<script>
+	$(function () {
+		$(".create-form").on("submit", function (event) {
+			// Make sure to preventDefault on a submit event.
+			event.preventDefault();
+
+			console.log("I was clicked!")
+
+			var newBurger = {
+				name: $("#ca").val().trim(),
+			};
+
+			// Send the POST request.
+			$.ajax("/api/burgers", {
+				type: "POST",
+				data: newBurger
+			}).then(
+				function () {
+					console.log("created new burger");
+					// Reload the page to get the updated list
+					location.reload();
+				}
+			);
+		});
+	});
+</script>
+
+</html>
