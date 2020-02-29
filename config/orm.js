@@ -5,8 +5,8 @@ var connection = require("../config/connection.js");
 const orm = {
     //   * `selectAll()`
     all: (tableInput, cb) => {
-        var queryString = "SELECT * FROM " + tableInput + ";";
-        connection.query(queryString, function (err, result) {
+        var queryString = "SELECT * FROM ??;";
+        connection.query(queryString, tableInput, (err, result) => {
             if (err) {
                 throw err;
             }
@@ -16,7 +16,7 @@ const orm = {
     //   * `insertOne()`
     create: (table, col, val, cb) => {
         const queryString = "INSERT INTO ?? (??) VALUES (?);";
-        connection.query(queryString, [table, col, val], function (err, result) {
+        connection.query(queryString, [table, col, val], (err, result) => {
             if (err) {
                 throw err;
             }
