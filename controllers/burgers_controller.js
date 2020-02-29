@@ -18,14 +18,21 @@ router.get("/", (req, res) => {
 
 router.post("/api/burgers", (req, res) => {
     burger.create("burger_name", req.body.name, (result) => {
-            // Send back the ID of the new quote
-            res.json({ id: result.insertId });
-            console.log(`you have added ${req.body.name} to you database`)
-        });
+        // Send back the ID of the new quote
+        res.json({ id: result.insertId });
+        console.log(`you have added ${req.body.name} to you database`)
+    });
 });
 
 router.put("/api/burgers/:id", (req, res) => {
+    var condition = "id = " + req.params.id;
 
+    console.log("condition", condition);
+
+    burger.update(req.params.id, (result) => {
+        res.json({ id: result.insertId });
+        console.log(`you have updated ${req.body.name} in your database`)
+    });
 });
 
 // Export routes for server.js to use.

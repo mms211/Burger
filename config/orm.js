@@ -24,6 +24,15 @@ const orm = {
         });
     },
     //   * `updateOne()`
+    update: (table, col1, val1, col2, val2, cb) => {
+        const queryString = "UPDATE ?? SET ?? = (?) WHERE ?? = (?);";
+        connection.query(queryString, [table, col1, val1, col2, val2], (err, result) => {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        })
+    }
 };
 // * Export the ORM object in `module.exports`.
 module.exports = orm;
