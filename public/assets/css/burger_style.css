@@ -1,3 +1,26 @@
 body {
-    background-color: darkgoldenrod;
+    background-color: rgb(250, 201, 78);
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+img {
+    height: 250px;
+    width: 300px;
+    align-self: center;
+}
+
+form {
+    margin: auto;
 }
