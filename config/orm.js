@@ -24,9 +24,9 @@ const orm = {
         });
     },
     //   * `updateOne()`
-    update: (table, col1, val1, col2, val2, cb) => {
+    update: (table, col1, val1, col2, id, cb) => {
         const queryString = "UPDATE ?? SET ?? = (?) WHERE ?? = (?);";
-        connection.query(queryString, [table, col1, val1, col2, val2], (err, result) => {
+        connection.query(queryString, [table, col1, val1, col2, id], (err, result) => {
             if (err) {
                 throw err;
             }
